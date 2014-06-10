@@ -6,7 +6,7 @@ Mojolicious::Plugin::LinkEmbedder - Convert a URL to embedded content
 
 =head1 VERSION
 
-0.05
+0.06
 
 =head1 DESCRIPTION
 
@@ -81,7 +81,7 @@ use Mojo::UserAgent;
 use Mojolicious::Plugin::LinkEmbedder::Link;
 use constant DEBUG => $ENV{MOJO_LINKEMBEDDER_DEBUG} || 0;
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 my $LOADER = Mojo::Loader->new;
 
 has _ua => sub { Mojo::UserAgent->new };
@@ -215,6 +215,22 @@ sub _add_action {
     });
   });
 }
+
+=head1 DISCLAIMER
+
+This module might embed javascript from 3rd party services.
+
+Any damage caused by either evil DNS takeover or malicious code inside
+the javascript is not taken into account by this module.
+
+If you are aware of any security risks, then please let us know.
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright (C) 2014, Jan Henning Thorsen
+
+This program is free software, you can redistribute it and/or modify
+it under the terms of the Artistic License version 2.0.
 
 =head1 AUTHOR
 
