@@ -6,7 +6,7 @@
    "dynamic_config" : 1,
    "generated_by" : "ExtUtils::MakeMaker version 6.66, CPAN::Meta::Converter version 2.120921",
    "license" : [
-      "perl_5"
+      "artistic_2"
    ],
    "meta-spec" : {
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
@@ -34,22 +34,19 @@
       },
       "runtime" : {
          "requires" : {
-            "Mojolicious" : "4.30"
+            "Mojolicious" : "5.00"
          }
       }
    },
    "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
-         "web" : "http://rt.cpan.org/NoAuth/Bugs.html?Dist=Mojolicious-Plugin-LinkEmbedder"
+         "web" : "https://github.com/jhthorsen/mojolicious-plugin-linkembedder/issues"
       },
-      "homepage" : "https://metacpan.org/release/Mojolicious-Plugin-LinkEmbedder",
-      "license" : [
-         "http://dev.perl.org/licenses/"
-      ],
+      "homepage" : "https://github.com/jhthorsen/mojolicious-plugin-linkembedder",
       "repository" : {
-         "url" : "https://github.com/jhthorsen/mojolicious-plugin-linkembedder"
+         "url" : "https://github.com/jhthorsen/mojolicious-plugin-linkembedder.git"
       }
    },
-   "version" : "0.06"
+   "version" : "0.07"
 }

@@ -6,7 +6,7 @@ Mojolicious::Plugin::LinkEmbedder - Convert a URL to embedded content
 
 =head1 VERSION
 
-0.06
+0.07
 
 =head1 DESCRIPTION
 
@@ -81,7 +81,7 @@ use Mojo::UserAgent;
 use Mojolicious::Plugin::LinkEmbedder::Link;
 use constant DEBUG => $ENV{MOJO_LINKEMBEDDER_DEBUG} || 0;
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 my $LOADER = Mojo::Loader->new;
 
 has _ua => sub { Mojo::UserAgent->new };
@@ -174,6 +174,7 @@ sub register {
     'collegehumor' => 'Mojolicious::Plugin::LinkEmbedder::Link::Video::Collegehumor',
     'gist.github' => 'Mojolicious::Plugin::LinkEmbedder::Link::Text::GistGithub',
     'image' => 'Mojolicious::Plugin::LinkEmbedder::Link::Image',
+    'imgur' => 'Mojolicious::Plugin::LinkEmbedder::Link::Image::Imgur',
     'ted' => 'Mojolicious::Plugin::LinkEmbedder::Link::Video::Ted',
     'text' => 'Mojolicious::Plugin::LinkEmbedder::Link::Text',
     'twitter' => 'Mojolicious::Plugin::LinkEmbedder::Link::Text::Twitter',
@@ -235,6 +236,8 @@ it under the terms of the Artistic License version 2.0.
 =head1 AUTHOR
 
 Jan Henning Thorsen - C<jhthorsen@cpan.org>
+
+Joel Berger, jberger@cpan.org
 
 Marcus Ramberg - C<mramberg@cpan.org>
 

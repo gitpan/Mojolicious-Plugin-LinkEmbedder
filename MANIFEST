@@ -1,0 +1,40 @@
+.ship.conf
+Changes
+cpanfile
+lib/Mojolicious/Plugin/LinkEmbedder.pm
+lib/Mojolicious/Plugin/LinkEmbedder/Link.pm
+lib/Mojolicious/Plugin/LinkEmbedder/Link/Game.pm
+lib/Mojolicious/Plugin/LinkEmbedder/Link/Game/_2play.pm
+lib/Mojolicious/Plugin/LinkEmbedder/Link/Image.pm
+lib/Mojolicious/Plugin/LinkEmbedder/Link/Image/Imgur.pm
+lib/Mojolicious/Plugin/LinkEmbedder/Link/Text.pm
+lib/Mojolicious/Plugin/LinkEmbedder/Link/Text/GistGithub.pm
+lib/Mojolicious/Plugin/LinkEmbedder/Link/Text/Twitter.pm
+lib/Mojolicious/Plugin/LinkEmbedder/Link/Video.pm
+lib/Mojolicious/Plugin/LinkEmbedder/Link/Video/Blip.pm
+lib/Mojolicious/Plugin/LinkEmbedder/Link/Video/Collegehumor.pm
+lib/Mojolicious/Plugin/LinkEmbedder/Link/Video/Dbtv.pm
+lib/Mojolicious/Plugin/LinkEmbedder/Link/Video/Ted.pm
+lib/Mojolicious/Plugin/LinkEmbedder/Link/Video/Vimeo.pm
+lib/Mojolicious/Plugin/LinkEmbedder/Link/Video/Youtube.pm
+Makefile.PL
+MANIFEST			This list of files
+README
+script/test.pl
+t/00-basic.t
+t/App.pm
+t/fallback.t
+t/image-base.t
+t/image-imgur.t
+t/is.t
+t/text-gist-github.t
+t/text-twitter.t
+t/video-base.t
+t/video-blip.t
+t/video-collegehumor.t
+t/video-dbtv.t
+t/video-ted.t
+t/video-vimeo.t
+t/video-youtube.t
+META.yml                                 Module YAML meta-data (added by MakeMaker)
+META.json                                Module JSON meta-data (added by MakeMaker)
