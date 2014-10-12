@@ -1,4 +1,6 @@
+.perltidyrc
 .ship.conf
+.travis.yml
 Changes
 cpanfile
 lib/Mojolicious/Plugin/LinkEmbedder.pm
@@ -9,6 +11,7 @@ lib/Mojolicious/Plugin/LinkEmbedder/Link/Image.pm
 lib/Mojolicious/Plugin/LinkEmbedder/Link/Image/Imgur.pm
 lib/Mojolicious/Plugin/LinkEmbedder/Link/Text.pm
 lib/Mojolicious/Plugin/LinkEmbedder/Link/Text/GistGithub.pm
+lib/Mojolicious/Plugin/LinkEmbedder/Link/Text/HTML.pm
 lib/Mojolicious/Plugin/LinkEmbedder/Link/Text/Twitter.pm
 lib/Mojolicious/Plugin/LinkEmbedder/Link/Video.pm
 lib/Mojolicious/Plugin/LinkEmbedder/Link/Video/Blip.pm
@@ -28,6 +31,7 @@ t/image-base.t
 t/image-imgur.t
 t/is.t
 t/text-gist-github.t
+t/text-html.t
 t/text-twitter.t
 t/video-base.t
 t/video-blip.t
