@@ -6,7 +6,7 @@ Mojolicious::Plugin::LinkEmbedder - Convert a URL to embedded content
 
 =head1 VERSION
 
-0.09
+0.10
 
 =head1 DESCRIPTION
 
@@ -81,10 +81,10 @@ use Mojo::UserAgent;
 use Mojolicious::Plugin::LinkEmbedder::Link;
 use constant DEBUG => $ENV{MOJO_LINKEMBEDDER_DEBUG} || 0;
 
-our $VERSION = '0.09';
+our $VERSION = '0.10';
 my $LOADER = Mojo::Loader->new;
 
-has _ua => sub { Mojo::UserAgent->new };
+has _ua => sub { Mojo::UserAgent->new(max_redirects => 3) };
 
 =head1 METHODS
 
@@ -183,6 +183,7 @@ sub register {
     'blip'         => 'Mojolicious::Plugin::LinkEmbedder::Link::Video::Blip',
     'collegehumor' => 'Mojolicious::Plugin::LinkEmbedder::Link::Video::Collegehumor',
     'gist.github'  => 'Mojolicious::Plugin::LinkEmbedder::Link::Text::GistGithub',
+    'github'       => 'Mojolicious::Plugin::LinkEmbedder::Link::Text::Github',
     'html'         => 'Mojolicious::Plugin::LinkEmbedder::Link::Text::HTML',
     'image'        => 'Mojolicious::Plugin::LinkEmbedder::Link::Image',
     'imgur'        => 'Mojolicious::Plugin::LinkEmbedder::Link::Image::Imgur',

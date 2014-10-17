@@ -2,7 +2,7 @@
 use ExtUtils::MakeMaker;
 WriteMakefile(
   NAME => 'Mojolicious::Plugin::LinkEmbedder',
-  AUTHOR => 'Jan Henning Thorsen <jhthorsen@cpan.org>',
+  AUTHOR => 'Marcus Ramberg <marcus@nordaaker.com>',
   LICENSE => 'artistic_2',
   ABSTRACT_FROM => 'lib/Mojolicious/Plugin/LinkEmbedder.pm',
   VERSION_FROM => 'lib/Mojolicious/Plugin/LinkEmbedder.pm',

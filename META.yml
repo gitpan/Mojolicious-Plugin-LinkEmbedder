@@ -1,7 +1,7 @@
 ---
 abstract: 'Convert a URL to embedded content'
 author:
-  - 'Jan Henning Thorsen <jhthorsen@cpan.org>'
+  - 'Marcus Ramberg <marcus@nordaaker.com>'
 build_requires:
   File::Find: 1.00
   Module::Find: 0.10
@@ -25,4 +25,4 @@ resources:
   bugtracker: https://github.com/jhthorsen/mojolicious-plugin-linkembedder/issues
   homepage: https://github.com/jhthorsen/mojolicious-plugin-linkembedder
   repository: https://github.com/jhthorsen/mojolicious-plugin-linkembedder.git
-version: 0.09
+version: 0.10
