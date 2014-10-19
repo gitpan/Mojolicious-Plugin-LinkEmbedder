@@ -49,16 +49,18 @@ has title       => '';
 has type        => '';
 has video       => '';
 
+sub _cache_attributes {
+  shift->SUPER::_cache_attributes, qw( canon_url description image title type video );
+}
+
 =head1 METHODS
 
 =head2 learn
 
-Gets the file imformation from the page meta information
-
 =cut
 
 sub learn {
-  my ($self, $cb, @cb_args) = @_;
+  my ($self, $c, $cb) = @_;
 
   $self->ua->get(
     $self->url,
@@ -66,7 +68,7 @@ sub learn {
       my ($ua, $tx) = @_;
       my $dom = $tx->res->dom;
       $self->_tx($tx)->_learn_from_dom($dom) if $dom;
-      $cb->(@cb_args);
+      $self->$cb;
     },
   );
 
@@ -101,19 +103,23 @@ sub _learn_from_dom {
   my $e;
 
   $self->audio($e->{content}) if $e = $dom->at('meta[property="og:audio"]');
+
   $self->description($e->{content})
     if $e = $dom->at('meta[property="og:description"]') || $dom->at('meta[name="twitter:description"]');
+
   $self->image($e->{content})
     if $e
     = $dom->at('meta[property="og:image"]')
     || $dom->at('meta[property="og:image:url"]')
     || $dom->at('meta[name="twitter:image"]');
+
   $self->title($e->{content} || $e->text || '')
     if $e = $dom->at('meta[property="og:title"]') || $dom->at('meta[name="twitter:title"]') || $dom->at('title');
+
   $self->type($e->{content}) if $e = $dom->at('meta[property="og:type"]') || $dom->at('meta[name="twitter:card"]');
   $self->video($e->{content}) if $e = $dom->at('meta[property="og:video"]');
   $self->canon_url($e->{content}) if $e = $dom->at('meta[property="og:url"]') || $dom->at('meta[name="twitter:url"]');
-  $self->media_id($self->canon_url) unless $self->media_id;
+  $self->media_id($self->canon_url) if $self->canon_url and !defined $self->{media_id};
 }
 
 =head1 AUTHOR

@@ -8,11 +8,11 @@ Mojolicious::Plugin::LinkEmbedder::Link::Video::Youtube - youtube.com link
 
 L<https://developers.google.com/youtube/player_parameters#Embedding_a_Player>
 
-This class inherit from L<Mojolicious::Plugin::LinkEmbedder::Link::Video>.
+This class inherit from L<Mojolicious::Plugin::LinkEmbedder::Link::Text::HTML>.
 
 =cut
 
-use Mojo::Base 'Mojolicious::Plugin::LinkEmbedder::Link::Video';
+use Mojo::Base 'Mojolicious::Plugin::LinkEmbedder::Link::Text::HTML';
 
 =head1 ATTRIBUTES
 
@@ -25,6 +25,23 @@ Returns the "v" query param value from L</url>.
 has media_id => sub { shift->url->query->param('v') || '' };
 
 =head1 METHODS
+
+=head2 learn
+
+=cut
+
+sub learn {
+  my ($self, $c, $cb) = @_;
+
+  if ($self->media_id) {
+    $self->$cb;
+  }
+  else {
+    $self->SUPER::learn($c, $cb);
+  }
+
+  return $self;
+}
 
 =head2 pretty_url
 

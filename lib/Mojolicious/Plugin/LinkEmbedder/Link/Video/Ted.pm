@@ -6,11 +6,11 @@ Mojolicious::Plugin::LinkEmbedder::Link::Video::Ted - ted.com video
 
 =head1 DESCRIPTION
 
-This class inherit from L<Mojolicious::Plugin::LinkEmbedder::Link::Video>.
+This class inherit from L<Mojolicious::Plugin::LinkEmbedder::Link::Text::HTML>.
 
 =cut
 
-use Mojo::Base 'Mojolicious::Plugin::LinkEmbedder::Link::Video';
+use Mojo::Base 'Mojolicious::Plugin::LinkEmbedder::Link::Text::HTML';
 
 =head1 ATTRIBUTES
 
@@ -29,6 +29,23 @@ has media_id => sub {
 };
 
 =head1 METHODS
+
+=head2 learn
+
+=cut
+
+sub learn {
+  my ($self, $c, $cb) = @_;
+
+  if ($self->media_id) {
+    $self->$cb;
+  }
+  else {
+    $self->SUPER::learn($c, $cb);
+  }
+
+  return $self;
+}
 
 =head2 to_embed
 

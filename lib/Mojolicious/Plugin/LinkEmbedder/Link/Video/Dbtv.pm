@@ -29,6 +29,23 @@ has media_id => sub {
 
 =head1 METHODS
 
+=head2 learn
+
+=cut
+
+sub learn {
+  my ($self, $c, $cb) = @_;
+
+  if ($self->media_id) {
+    $self->$cb;
+  }
+  else {
+    $self->SUPER::learn($c, $cb);
+  }
+
+  return $self;
+}
+
 =head2 pretty_url
 
 Returns a pretty version of the L</url>.
@@ -53,7 +70,7 @@ Returns the HTML code for an iframe embedding this movie.
 
 sub to_embed {
   my $self = shift;
-  my $src  = Mojo::URL->new('beta.dbtv.no/player');
+  my $src  = Mojo::URL->new('http://beta.dbtv.no/player');
   my %args = @_;
 
   $args{height} ||= 551;
