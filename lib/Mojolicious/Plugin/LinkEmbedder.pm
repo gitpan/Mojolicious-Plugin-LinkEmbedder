@@ -6,7 +6,7 @@ Mojolicious::Plugin::LinkEmbedder - Convert a URL to embedded content
 
 =head1 VERSION
 
-0.11
+0.12
 
 =head1 DESCRIPTION
 
@@ -83,7 +83,7 @@ use Mojo::UserAgent;
 use Mojolicious::Plugin::LinkEmbedder::Link;
 use constant DEBUG => $ENV{MOJO_LINKEMBEDDER_DEBUG} || 0;
 
-our $VERSION = '0.11';
+our $VERSION = '0.12';
 my $LOADER = Mojo::Loader->new;
 
 =head1 ATTRIBUTES
@@ -154,7 +154,7 @@ sub embed_link {
     $self, $url,
     sub {
       my ($self, $data) = @_;
-      return $self->_new_link_object(undef => $c, $data, $cb) if $data and $data->{media_id};
+      return $self->_new_link_object(undef => $c, $data, $cb) if $data and defined $data->{media_id};
       return $self->_ua->head($url, sub { $_[1]->{input_url} = $url; $self->_learn($c, $_[1], $cb) });
     }
   );
@@ -199,7 +199,7 @@ sub _new_link_object {
   if (!defined $e) {
     my $link = $class->new($args);
 
-    if ($link->{media_id}) {
+    if (defined $link->{media_id}) {    # loaded from cache
       $c->$cb($link);
       return $class;
     }
