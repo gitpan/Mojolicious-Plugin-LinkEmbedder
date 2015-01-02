@@ -6,7 +6,7 @@ Mojolicious::Plugin::LinkEmbedder - Convert a URL to embedded content
 
 =head1 VERSION
 
-0.15
+0.16
 
 =head1 DESCRIPTION
 
@@ -51,6 +51,10 @@ Or if you want full control:
 
 =item * L<Mojolicious::Plugin::LinkEmbedder::Link::Image>
 
+=item * L<Mojolicious::Plugin::LinkEmbedder::Link::Image::Imgur>
+
+=item * L<Mojolicious::Plugin::LinkEmbedder::Link::Image::Xkcd>
+
 =item * L<Mojolicious::Plugin::LinkEmbedder::Link::Video>
 
 =item * L<Mojolicious::Plugin::LinkEmbedder::Link::Video::Dbtv>
@@ -91,7 +95,7 @@ use Mojo::UserAgent;
 use Mojolicious::Plugin::LinkEmbedder::Link;
 use constant DEBUG => $ENV{MOJO_LINKEMBEDDER_DEBUG} || 0;
 
-our $VERSION = '0.15';
+our $VERSION = '0.16';
 my $LOADER = Mojo::Loader->new;
 
 =head1 ATTRIBUTES
@@ -276,6 +280,7 @@ sub register {
     'video'        => 'Mojolicious::Plugin::LinkEmbedder::Link::Video',
     'vimeo'        => 'Mojolicious::Plugin::LinkEmbedder::Link::Video::Vimeo',
     'youtube'      => 'Mojolicious::Plugin::LinkEmbedder::Link::Video::Youtube',
+    'xkcd'         => 'Mojolicious::Plugin::LinkEmbedder::Link::Image::Xkcd',
   };
 
   $app->helper(
